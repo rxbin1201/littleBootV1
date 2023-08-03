@@ -15,4 +15,4 @@ $(BOOTLOADER_OBJECT_FILES): Build/%.o : Sources/%.c
 efi: $(BOOTLOADER_OBJECT_FILES)
 	$(LD) $(BOOTLOADER_OBJECT_FILES) $(EFI_LDFLAGS) -o Build/bootx64.so && \
 	objcopy -j .text -j .sdata -j .data -j .dynamic -j .dynsym -j .rel -j .rela -j .reloc --target=efi-app-x86_64 Build/bootx64.so Image/bootx64.efi && \
-	uefi-run -s 256 -f Image/kernel64.elf -f Image/font18.psf -f Image/littleboot.cfg -f Image/test.bmp -f Image/background.bmp -d Image/bootx64.efi -- -m 512 -rtc base=localtime
+	uefi-run -s 256 -f Image/kernel64.elf -f Image/font18.psf -f Image/littleboot.cfg -f Image/test.bmp -f Image/background.bmp -d Image/bootx64.efi -- -m 512 -rtc base=localtime --serial file:./Out.log

@@ -78,7 +78,7 @@ efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
     
     //Log(0xFF94A3B8, "Verifying Kernel header...\n");    
 
-    //while(1){};
+    while(1){};
 
     return EFI_SUCCESS;
 }  // End of file
